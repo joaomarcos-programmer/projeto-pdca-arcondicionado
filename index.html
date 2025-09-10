@@ -1,61 +1,83 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback de Ar-Condicionado</title>
+    <title>ETEC de Cubatão - Portal de Reclamações</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="bg-gray-100 d-flex flex-column align-items-center justify-content-center min-vh-100 p-4">
 
-    <div class="container py-5">
-        <div class="card shadow-lg mx-auto" style="max-width: 500px;">
-            <div class="card-body p-5">
+    <div class="card complaint-card shadow-lg p-md-5 p-4 rounded-4">
+        <div class="card-body">
+
+            <div class="text-center mb-4">
+                <div class="siren-icon mb-3 mx-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor">
+                        <path d="M480 32C442.7 32 416 58.7 416 96V192H320V96C320 58.7 293.3 32 256 32S192 58.7 192 96V192H96C58.7 192 32 218.7 32 256V448H544V256C544 218.7 517.3 192 480 192H416V96C416 58.7 442.7 32 480 32zM320 288V352H256V288H320zm-64-96V96H192v96H96v64h96v64h64v-64h96v-64H320V96h64v96h96v64H384V288h-64v64h-64V288H256zm288 160H32V448H544V448z"/>
+                    </svg>
+                </div>
+                <h2 class="text-dark fw-bold mb-0">ETEC de Cubatão</h2>
+                <h1 class="card-title-custom">Portal de Reclamações</h1>
+                <p class="card-subtitle-custom">Envie sua reclamação de forma rápida e segura.</p>
+            </div>
+
+            <form id="complaint-form" action="https://formspree.io/f/meoleorv" method="POST" class="needs-validation" novalidate>
                 
-                <div class="text-center mb-5">
-                    <h2 class="text-muted fw-bold mb-0">ETEC de Cubatão</h2>
-                    <h1 class="card-title-custom mt-2 mb-1">Feedback de Ar-Condicionado</h1>
-                    <p class="card-subtitle-custom">Nos ajude a melhorar o ambiente da escola!</p>
+                <div class="mb-3">
+                    <label for="nome" class="form-label text-secondary">Seu nome (opcional):</label>
+                    <input type="text" id="nome" name="nome" class="form-control" placeholder="Ex: João da Silva">
                 </div>
 
-                <form id="feedback-form" action="https://formspree.io/f/meoleorv" method="POST">
-                    
-                    <div class="mb-3">
-                        <label for="nome" class="form-label">Seu nome (opcional):</label>
-                        <input type="text" id="nome" name="nome" class="form-control rounded-pill">
+                <div class="mb-3">
+                    <label for="turma" class="form-label text-secondary">Sua turma (opcional):</label>
+                    <input type="text" id="turma" name="turma" class="form-control" placeholder="Ex: 3º Informática A">
+                </div>
+
+                <div class="mb-3">
+                    <label for="sala" class="form-label text-secondary">Sala ou Local:</label>
+                    <input type="text" id="sala" name="sala" required class="form-control" placeholder="Ex: Sala 1 ou Refeitório">
+                    <div class="invalid-feedback">
+                        Por favor, informe a sala ou local.
                     </div>
+                </div>
 
-                    <div class="mb-3">
-                        <label for="turma" class="form-label">Sua turma (opcional):</label>
-                        <input type="text" id="turma" name="turma" class="form-control rounded-pill">
+                <div class="mb-3">
+                    <label for="problema" class="form-label text-secondary">Descreva o problema:</label>
+                    <textarea id="problema" name="problema" rows="4" required class="form-control" placeholder="Detalhe o problema com o ar-condicionado."></textarea>
+                    <div class="invalid-feedback">
+                        Por favor, descreva o problema.
                     </div>
+                </div>
 
-                    <div class="mb-3">
-                        <label for="sala" class="form-label">Qual a sala ou local?</label>
-                        <input type="text" id="sala" name="sala" required class="form-control rounded-pill">
+                <div class="mb-4">
+                    <label for="avaliacao" class="form-label text-secondary">Dê uma nota de 1 a 5 para a situação:</label>
+                    <input type="number" id="avaliacao" name="avaliacao" min="1" max="5" required class="form-control" placeholder="Nota de 1 (muito ruim) a 5 (ótimo)">
+                    <div class="invalid-feedback">
+                        Por favor, dê uma nota de 1 a 5.
                     </div>
+                </div>
 
-                    <div class="mb-3">
-                        <label for="problema" class="form-label">Descreva o problema:</label>
-                        <textarea id="problema" name="problema" rows="4" required class="form-control rounded-3"></textarea>
-                    </div>
+                <button type="submit" class="btn btn-primary w-100 fw-bold py-2 shadow-sm rounded-pill">
+                    Registrar Reclamação
+                </button>
+            </form>
 
-                    <div class="mb-4">
-                        <label for="avaliacao" class="form-label">Dê uma nota de 1 a 5:</label>
-                        <input type="number" id="avaliacao" name="avaliacao" min="1" max="5" required class="form-control rounded-pill">
-                    </div>
-
-                    <button type="submit" class="btn btn-primary w-100 fw-bold py-2 rounded-pill shadow-sm">
-                        Enviar Feedback
-                    </button>
-                </form>
-
-            </div>
         </div>
     </div>
     
+    <!-- Seção de Direitos Autorais -->
+    <footer class="mt-4 text-center text-muted footer-text">
+        <p>&copy; 2025. Desenvolvido por:</p>
+        <p>
+            João Marcos Pereira Alves <a href="https://www.instagram.com/jm.akira_/" target="_blank" class="instagram-link">(@jm.akira_)</a>
+        </p>
+        <p>
+            Julia Oliveira da Silva <a href="https://www.instagram.com/ealien___" target="_blank" class="instagram-link">(@ealien__)</a>
+        </p>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
